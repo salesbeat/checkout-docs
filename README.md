@@ -221,5 +221,21 @@ salesbeat.openCheckout();
 salesbeat.refreshCheckout();
 ```
 
+## Обработчики событий
+
+```javascript
+const salesbeat = new window.Salesbeat(
+    '<CART_ID>', 
+    '<CLIENT_TOKEN>',
+    {
+        // Вызывается при скрытии чекаута (нажатии на крестик)
+        onClose: () => console.log('I\'m handle close event!'),
+        
+        // Вызывается, когда внутри чекаута пользователь изменил количество товара
+        onUpdateQuantity: ({ id, quantity }) => console.log(`Quantity of product ${id} changed to ${quantity}`),
+    }
+);
+```
+
 
 ## Если вдруг возникнут проблемы/вопросы — `hi@salesbeat.pro`
